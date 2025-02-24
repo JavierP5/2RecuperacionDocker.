@@ -37,7 +37,7 @@ lo vuelvas a arrancar? ¿Por qué?
 
 No. Porque no tienen ningún sitio donde puedan estar guardados.  
 
-4. Si ejecutas  
+3. Si ejecutas  
 docker run -p 8080:79 nginx  
 (imagen nginx)  
 E intentas acceder con el navegador a:  
