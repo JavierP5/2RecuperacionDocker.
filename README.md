@@ -3,6 +3,44 @@
 ## Parte 1  (docker-compose.yml)  
 Creamos un archivo docker-compose.yml:  
 
+services:  
+  owncloud:  
+    image: owncloud/server  
+    container_name: owncloud_server  
+    restart: always  
+    ports:  
+      - 8080:8080  
+    depends_on:  
+      - mariadb  
+    environment:  
+      - OWNCLOUD_DB_HOST: mariadb  
+      - OWNCLOUD_DB_NAME: sxe_owncloud_db #Nombre de la base de datos  
+      - OWNCLOUD_DB_USERNAME: sxe_user_db #Nombre del usuario de la base de datos  
+      - OWNCLOUD_DB_PASSWORD: sxe_user_password_db #Contraseña del usuario de la base de datos  
+      - OWNCLOUD_ADMIN_USERNAME: sxe_admin #Nombre   del usuario administrador de owncloud    
+      - OWNCLOUD_ADMIN_PASSWORD: sxe_admin_password #Contraseña del usuario administrador de owncloud  
+    volumes:  
+      - oc_vol  
+
+  mariadb:  
+    image: mariadb:11.1  
+    container_name: owncloud_mariadb  
+    restart: always  
+    environment:  
+      - MYSQL_ROOT_PASSWORD: sxe_root_password #Password del usuario root de la base de datos  
+      - MYSQL_USER: sxe_user_db  
+      - MYSQL_PASSWORD: sxe_user_db_password  
+      - MYSQL_DATABASE: sxe_owncloud_db  
+    volumes:  
+      - db_vol  
+
+  adminer:  
+    image: adminer  
+    restart: always  
+    ports:  
+      - 8080:80  
+
+
 
 
 
