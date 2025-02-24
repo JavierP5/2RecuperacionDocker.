@@ -1,6 +1,8 @@
-# 2RecuperacionDocker.
+# 2RecuperacionDocker.  
 
-## Parte 1  
+## Parte 1  (docker-compose.yml)  
+Creamos un archivo docker-compose.yml:  
+
 
 
 
